@@ -1,5 +1,5 @@
 import React from "react";
-
+// import ButtonComp from "./ButtonComp";
 function Header() {
   return (
     <div className="header">
@@ -22,10 +22,9 @@ function Header() {
             name="searchInput"
             placeholder="search for paste"
           />
-          <section>
-            <p>
-              <button type="submit">Search</button>
-            </p>
+          <section className="searchBtnSection">
+              <button type="submit" className="searchBtn" onClick={(e)=>{e.preventDefault()}}>Search</button>
+              
           </section>
         </form>
       </div>

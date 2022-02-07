@@ -1,0 +1,132 @@
+@charset "UTF-8";
+:root {
+  --clr-accent: #3d75c9;
+  --clr-light: #f1f1f1;
+  --clr-dark: #2e323f;
+  --clr-primary: #d0d3db;
+  --clr-secondary: #bcc1cf;
+  --foreground: var(--clr-dark);
+  --background: var(--clr-light);
+  --theme-icon: "☀";
+  --inverted: none;
+  --font-title: "Oswald", sans-serif;
+  --font-text: "Montserrat", sans-serif;
+  --padding-block-section: 1rem;
+  --margin-top-element: 1em;
+  --radius: 5px;
+  --link-clr: #0000ee;
+  --visited-clr: #551a8b;
+}
+
+* {
+  font-family: var(--font-text);
+}
+
+.header {
+  background-color: var(--background);
+  font-family: var(--font-title) !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.searchDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 28%;
+  text-align: center;
+}
+
+.searchBtnSection {
+  margin-top: 5px;
+}
+
+.searchBtn {
+  background-color: var(--clr-accent);
+  border-radius: 5px;
+}
+
+.footer {
+  font-family: var(--font-text);
+  background-color: var(--background);
+  padding: 1em;
+  color: var(--foreground);
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  /* Height of the footer*/
+  height: 60px;
+}
+
+.copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.copyright-link {
+  color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5em;
+  text-decoration: underline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.copyright-link:hover,
+.copyright-link:focus {
+  opacity: 0.75;
+}
+
+.github-img {
+  width: 1.5em;
+  -webkit-filter: var(--inverted);
+          filter: var(--inverted);
+}
+
+.pasteList {
+  overflow: hidden;
+  border: 1px solid black;
+  margin: 5px auto;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: var(--radius);
+  background-color: var(--background);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.pasteBox {
+  border: 1px solid black;
+  margin: 3px 10px;
+  padding: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+/*# sourceMappingURL=index.css.map */

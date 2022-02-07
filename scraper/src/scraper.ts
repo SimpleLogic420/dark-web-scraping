@@ -1,4 +1,4 @@
-console.log("Project setup correctly!");
+
 
 import axios from "axios";
  import Paste  from "./db/models/Schema"

@@ -6,7 +6,7 @@ import morgan from "morgan";
 import morganHandler from "./middlewares/morgan";
 import errorHandler from "./middlewares/errorHandlers";
 import start from "./scraper";
-
+import listRouter from "./routes/listRoute";
 
 const app = express();
 
@@ -22,11 +22,8 @@ app.get("/", (_req, res) => {
   res.send("hello world");
 
 });
-// setInterval(() => {
-//   start();
-//   console.log(`scraped at: ${new Date()}`);
-// }, 5000);
-start();
+
+app.use("/list",listRouter)
 app.use(errorHandler);
 
 export default app;

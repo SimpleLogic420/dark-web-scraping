@@ -1,7 +1,10 @@
+
+
 :root {
   --clr-accent: #3d75c9;
 
   --clr-light: #f1f1f1;
+  
   --clr-dark: #2e323f;
   --clr-primary: #d0d3db;
   --clr-secondary: #bcc1cf;
@@ -29,9 +32,8 @@
   font-family: var(--font-text);
 }
 .header {
-    
-  background-color: var(--background);
-  font-family: var(--font-title);
+  background-color: var(--background) ;
+  font-family: var(--font-title) !important;
   display: flex;
   flex-direction: row;
   
@@ -44,6 +46,14 @@
   flex-direction: column;
   margin-left: 28%;
   text-align: center;
+}
+.searchBtnSection{
+    margin-top: 5px;
+}
+.searchBtn{
+    background-color: var(--clr-accent);
+    border-radius: 5px;
+    
 }
 // FOOTER
 .footer {
@@ -86,12 +96,21 @@
 
 // PASTELIST
 .pasteList {
-    overflow: hidden;
+    // overflow:scroll;
+    // scroll-behavior: smooth;
+    
+    overflow:hidden;
     border: 1px solid black;
     margin: 5px auto;
     width: 90%;
     max-width: 1200px;
     border-radius: var(--radius);
     background-color: var(--background);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.pasteBox{
+    border: 1px solid black;
+    margin: 3px 10px;
+    padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
