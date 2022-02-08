@@ -1,6 +1,5 @@
 import React ,{useEffect,useState} from 'react';
-import axios from 'axios'; 
-import { FullPasteType ,PasteType } from '../../types/paste';
+import { FullPasteType } from '../../types/paste';
 
 import ReactPaginate from "react-paginate"
 function PasteList({pastelist,setPasteList,search}:{pastelist:FullPasteType[],setPasteList:React.Dispatch<React.SetStateAction<never[]>>,search:FullPasteType[]}) {

@@ -1,19 +1,8 @@
-import React, {useRef, useState,useCallback} from "react";
+import React from "react";
 import { FullPasteType } from "../types/paste";
-// import ButtonComp from "./ButtonComp";
-function Header({pastelist,setSearch}:{pastelist:FullPasteType[],setSearch:React.Dispatch<React.SetStateAction<never[]>>}) {
-  // const debounce= (func: { apply: (arg0: any, arg1: any[]) => void; })=>{
-  //   let timer: NodeJS.Timeout | null;
-  //   return function (...args: any[]){
-  //     const context= this;
-  //     if(timer) clearTimeout(timer)
-  //     timer=setTimeout(()=>{
-  //       timer=null
-  //       func.apply(context,args)
-  //     })
-  //   }
-  // }
 
+function Header({pastelist,setSearch}:{pastelist:FullPasteType[],setSearch:React.Dispatch<React.SetStateAction<never[]>>}) {
+  
   function filterFunc(filter:string, pastelist:FullPasteType[]) {
 const filteredArray:FullPasteType[]=[]
     for (let i = 0; i < pastelist.length; i++) {
