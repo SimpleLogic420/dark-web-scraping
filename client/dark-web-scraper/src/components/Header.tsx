@@ -2,9 +2,19 @@ import React, {useRef, useState,useCallback} from "react";
 import { FullPasteType } from "../types/paste";
 // import ButtonComp from "./ButtonComp";
 function Header({pastelist,setSearch}:{pastelist:FullPasteType[],setSearch:React.Dispatch<React.SetStateAction<never[]>>}) {
-  
+  // const debounce= (func: { apply: (arg0: any, arg1: any[]) => void; })=>{
+  //   let timer: NodeJS.Timeout | null;
+  //   return function (...args: any[]){
+  //     const context= this;
+  //     if(timer) clearTimeout(timer)
+  //     timer=setTimeout(()=>{
+  //       timer=null
+  //       func.apply(context,args)
+  //     })
+  //   }
+  // }
+
   function filterFunc(filter:string, pastelist:FullPasteType[]) {
-    console.log(filter)
 const filteredArray:FullPasteType[]=[]
     for (let i = 0; i < pastelist.length; i++) {
       const title = pastelist[i].title;
@@ -23,8 +33,12 @@ const filteredArray:FullPasteType[]=[]
   const handleChange=(event:any)=>{
     const value= event.target.value
     const filteredArray=filterFunc(value,pastelist);
-    // @ts-ignore
+    // eslint-disable-next-line no-native-reassign
+    setTimeout(() => {
+     // @ts-ignore
     setSearch(filteredArray)
+    }, 2000);
+    
   }
   return (
     <div className="header">
