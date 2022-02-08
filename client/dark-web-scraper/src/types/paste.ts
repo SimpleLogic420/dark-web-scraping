@@ -1,12 +1,19 @@
-interface PasteType {
+
+
+export interface PasteType {
+  id:string;
     author: string;
     title: string;
     content: string;
-    date: Date;
+    date: string;
+  }
+  export interface FullPasteType {
+    id:string;
+    author: string;
+    title: string;
+    content: string;
+    date: string;
+    category:string
   }
   
-  interface AuthorAndDate {
-    author: string;
-    date: Date;
-  }
-export default PasteType;
+  

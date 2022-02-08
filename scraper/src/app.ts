@@ -10,20 +10,18 @@ import listRouter from "./routes/listRoute";
 
 const app = express();
 
+
 app.use(express.json());
 app.use(cors());
-app.use(bodyParser.text());
-app.use(
-  morganHandler,
-  morgan(":method :url :status :res[content-length] - :response-time ms :body")
-);
 
-app.get("/", (_req, res) => {
-  res.send("hello world");
+// app.use(
+//   morganHandler,
+//   morgan(":method :url :status :res[content-length] - :response-time ms :body")
+// );
 
-});
+
 
 app.use("/list",listRouter)
-app.use(errorHandler);
+// app.use(errorHandler);
 
 export default app;

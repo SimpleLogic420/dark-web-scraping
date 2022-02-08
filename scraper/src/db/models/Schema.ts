@@ -22,6 +22,10 @@ const PasteSchema = new mongoose.Schema({
         type:String,
         required : true
     },
+    category: {
+        type:String,
+        required : true
+    },
   });
 
   const Paste = mongoose.model("strong_hold_pastes", PasteSchema);
