@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA;;EAEE;AACF,AAAA,qBAAqB,CAAC;EAClB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,MAAM;EACd,SAAS,EAAE,KAAK;EAChB,OAAO,EAAE,KAAK;CACjB;;AAED,AAAA,OAAO,CAAC;EACJ,OAAO,EAAE,KAAK;EACd,MAAM,EAAE,MAAM;CACjB",
-    "sources": [
-        "two-factor.scss"
-    ],
-    "names": [],
-    "file": "two-factor.css"
-}
