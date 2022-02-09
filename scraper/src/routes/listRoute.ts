@@ -3,7 +3,6 @@ import express ,{ Handler, Response } from "express";
 import getList from "../controllers/listController"
 import Paste from "../db/models/Schema";
 import start from "../scraper";
-import { getStats } from "../services/dashboard/stats";
 const listRouter = express.Router();
 const url =
   "http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all"; // URL we're scraping
@@ -32,12 +31,11 @@ listRouter.get("/delete-all", async (req, res, next) => {
       });
      start(url);
      const pastes= await Paste.find({})
-     const stats= getStats(pastes)
-     res.write(`data:${JSON.stringify({pastes,stats})}\n\n`)
+     res.write(`data:${JSON.stringify(pastes)}\n\n`)
      setInterval(async()=>{
        start(url)
        const pastes= await Paste.find({})
-       res.write(`data:${JSON.stringify({pastes,stats})}\n\n`)
+       res.write(`data:${JSON.stringify(pastes)}\n\n`)
      },120000)
   });
 

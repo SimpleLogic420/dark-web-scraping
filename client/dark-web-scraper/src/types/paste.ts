@@ -16,10 +16,4 @@ export interface PasteType {
     category:string
   }
   
-  export interface Percentage{
-    General:number,
-    Crypto:number,
-    Hacking:number,
-    DrugsAndWeapons:number,
-    AdultsContent:number
-  }
+  

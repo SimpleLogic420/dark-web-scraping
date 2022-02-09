@@ -1,40 +1,52 @@
-import PasteType, { FullPasteType } from "../../types/types";
+import PasteType, { Categorys, FullPasteType } from "../../types/types";
 
-export const getStats=(pastelist:FullPasteType[])=>{
-const stats={
-    General: 0,
-    Crypto: 0,
-    Hacking: 0,
-    DrugsAndWeapons: 0,
-    AdultsContent: 0,
-}
-const percentPerPaste= 100/pastelist.length
-for(let paste of pastelist){
-    switch (paste.category) {
-        case "general":
-            stats.General+=1
-            break;
-        case "crypto":
-            stats.Crypto+=1
-            break;
-        case "hacking":
-            stats.Hacking+=1
-            break;
-        case "drugsAndWeapons":
-            stats.DrugsAndWeapons+=1
-            break;
-        case "adultsContent":
-            stats.AdultsContent+=1
-            break;
-    
-        default:
-            break;
+
+
+export const addCategory = (pasteObj: PasteType) => {
+  let title = pasteObj.title.toLowerCase();
+  let content = pasteObj.content.toLowerCase();
+  const category = getCategory(title);
+  if(category==="general"){
+   const categoryByContent=getCategory(content)
+   const fullPasteObj:FullPasteType=pasteObj
+   fullPasteObj.category=categoryByContent
+   return fullPasteObj;
+  }
+const fullPasteObj:FullPasteType=pasteObj
+fullPasteObj.category=category;
+return fullPasteObj
+  
+};
+let counter =0
+const getCategory = (text: string) => {
+    let response = "general"
+    const adultsContentKeyWords= ["porn","sex","xxx","taboo","child","teen","c.p","s3x","hot"]
+    const cryptoKeyWords= ["crypto","bitcoin","ethereum","mining","coin","binance",]
+    const hackingKeyWords= ["database","hack","leak","users","data","injection","brut"]
+    const drugsAndWeaponsKeyWords= ["drug","weapon","pistol","rifle","psychedelic","cocaine","mushrooms","lsd","hashish","weed","molly","dmt"]
+    for(let word of adultsContentKeyWords){
+        if(text.includes(word)){
+            response="adultsContent";
+    return response;
+        }
     }
-}
-stats.General*=percentPerPaste
-stats.Crypto*=percentPerPaste
-stats.Hacking*=percentPerPaste
-stats.DrugsAndWeapons*=percentPerPaste
-stats.AdultsContent*=percentPerPaste
-return stats
-}
+    for(let word of cryptoKeyWords){
+        if(text.includes(word)){
+            response="crypto";
+            return response
+        }
+    }
+    for(let word of hackingKeyWords){
+        if(text.includes(word)){
+            response="hacking";
+            return response
+        }
+    }
+    for(let word of drugsAndWeaponsKeyWords){
+        if(text.includes(word)){
+            response="drugsAndWeapons";
+            return response
+        }
+    }
+ return response;
+};
