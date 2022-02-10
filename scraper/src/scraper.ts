@@ -35,12 +35,13 @@ const buildPasteList=(containers)=>{
       const content = getContent(container);
   
       const author = container.querySelector(".col-sm-6");
-      const authorText = cropAuthor(author.textContent);
+      let authorText = cropAuthor(author.textContent);
   
       const dateText = cropDate(author.textContent, authorText);
-      if (author === "Guest" || author === "Unknown" || author === "Anonymous") { //happens after the we getting the date because it depends on the author name
-          author=== "@";
+      if (authorText === "Guest" || authorText === "Unknown" || authorText === "Anonymous") { //happens after the we getting the date because it depends on the author name
+          authorText= "@";
      }
+     console.log(authorText)
       const urlId = (
         container.querySelectorAll(
           ".col-sm-7.text-right a"
@@ -128,7 +129,6 @@ const cropDate = (str: string | null | undefined, author: string) => {
   try {
     if (str == null) return "";
   const date = str.trim().replace(`Posted by ${author} at `, "");
-  console.log(date);
   return date;
   } catch (error) {
     console.log("failed in crop date" +error.data);
