@@ -26,7 +26,7 @@ const filteredArray:FullPasteType[]=[]
     setTimeout(() => {
      // @ts-ignore
     setSearch(filteredArray)
-    }, 2000);
+    }, 1000);
     
   }
   return (
