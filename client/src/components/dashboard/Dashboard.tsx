@@ -1,12 +1,13 @@
 import React from 'react'
 import {Doughnut} from 'react-chartjs-2'
 import { Chart, DoughnutController, ArcElement, Tooltip, Legend, Title } from 'chart.js';
-import {  Percentage } from '../../types/paste'
+import {  FullPasteType, Percentage } from '../../types/paste'
 import Barchart from './Barchart';
 interface props {
     percentage: Percentage;
+    pastelist: FullPasteType[];
   }
-function Dashboard({ percentage }: props) {
+function Dashboard({ percentage ,pastelist}: props) {
     Chart.register(ArcElement, DoughnutController, Tooltip, Legend, Title);
     const data = {
         
@@ -52,7 +53,7 @@ function Dashboard({ percentage }: props) {
             display: true,
             text: '% of pastes by category',
             font: {
-              size: 18,
+              size: 12,
             },
           },
         },
@@ -68,7 +69,7 @@ function Dashboard({ percentage }: props) {
        <Doughnut  options={options} data={data}  />
       </div>
       {/* return similar div as "doughnutDiv just with bar element" */}
-       <Barchart percentage={percentage}/>
+       <Barchart pastelist={pastelist} percentage={percentage}/>
     </div>
     
   )

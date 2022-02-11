@@ -9,13 +9,44 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import {  Percentage } from '../../types/paste'
-
+import {  FullPasteType, Percentage } from '../../types/paste'
+import {getHours} from '../../services/helpers'
 interface props {
   percentage: Percentage;
+  pastelist: FullPasteType[];
 }
 
-function Barchart({ percentage }: props) {
+function Barchart({ percentage,pastelist }: props) {
+
+  function formatDateTo_DD_MM_YYYY(date: Date) {
+    let dateStr=date.toString()
+    let date1= dateStr.substring(4,15)
+    const rightFormatDate=date1.split(" ")[1] + " " + date1.split(" ")[0] + " " + date1.split(" ")[2]
+    return rightFormatDate;
+ }
+ const specificDayUploadHours=(specificDayArray:FullPasteType[])=>{
+ const hoursArray =[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] //24 indexes for every hour at day
+ for(let paste of pastelist){
+   const pasteUploadHourNumber=Number(paste.date.substring(13,15))
+   hoursArray[pasteUploadHourNumber]+=1
+   
+ }
+ return hoursArray;
+ }
+ 
+ const getSpecificDayPastes=()=>{
+   const date1= new Date();
+   const date= formatDateTo_DD_MM_YYYY(date1);
+   const specificDayArray=[]
+   for(let paste of pastelist){
+     const croppedDate=paste.date.substring(0,11);
+     if(croppedDate===date){
+       specificDayArray.push(paste)
+     }
+   }
+   const specificDayUploads=specificDayUploadHours(specificDayArray)
+   return specificDayUploads;
+ }
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -32,25 +63,18 @@ function Barchart({ percentage }: props) {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'Current day uploads',
       },
     },
   };
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const labels = getHours();
 
  const data = {
   labels,
   datasets: [
     {
-      label: 'Dataset 1',
-      data: [
-        percentage.General,
-        percentage.Crypto,
-        percentage.DrugsAndWeapons,
-        percentage.Hacking,
-        percentage.AdultsContent,
-        
-      ],
+      label: 'Uploads in Specific hour',
+      data: getSpecificDayPastes(),
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -70,6 +94,7 @@ function Barchart({ percentage }: props) {
     }
   ],
 };
+ 
   return (
     <div className='barChartDiv'>
       {/* @ts-ignore */}

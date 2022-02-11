@@ -14,6 +14,7 @@ const start = async (siteUrl: string) => {
         port: 8118,
       },
     });
+    // console.log(res);
     const dom = new JSDOM(res.data);
     const document = dom.window.document;
     const containers = document.querySelectorAll(
