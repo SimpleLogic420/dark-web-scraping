@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Header from "./components/header/Header";
+import Header from "./components/Header";
 import Footer from "./components/footer/Footer";
 import PasteList from "./components/pastes/PasteList";
-import KeyWord from "./pages/KeyWord";
 import "./index.scss";
 
 function App() {
@@ -19,29 +17,18 @@ function App() {
   });
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <myContext.Provider value={900} > */}
       <Header pastelist={pastelist} setSearch={setSearch} />
-      <main>
-        <Routes>
-        <Route path="/" element={<PasteList
-    stats={stats}
-    // @ts-ignore
-    setStats={setStats}
-      search={search}
-      pastelist={pastelist}
-      setPasteList={setPasteList}
-    />}/>
-        <Route path="/views" element={<KeyWord/>}/>
-      
-        </Routes>
-      </main>
-      
-    
-    
-    <Footer />
-      </BrowserRouter>
-     
-      
+      <PasteList
+      stats={stats}
+      // @ts-ignore
+      setStats={setStats}
+        search={search}
+        pastelist={pastelist}
+        setPasteList={setPasteList}
+      />
+      <Footer />
+      {/* </myContext.Provider> */}
     </div>
   );
 }

@@ -14,7 +14,6 @@ const start = async (siteUrl: string) => {
         port: 8118,
       },
     });
-    // console.log(res);
     const dom = new JSDOM(res.data);
     const document = dom.window.document;
     const containers = document.querySelectorAll(
@@ -60,7 +59,7 @@ const buildPasteList=(containers)=>{
       const fullPasteObj = addCategory(pasteObj);
       pastesArray.push(fullPasteObj);
     }
-    enterDataToDb(pastesArray);
+    enterDataToDb(pastesArray.reverse());
   } catch (error) {
     console.log("failed in build paste list "+error);
   }

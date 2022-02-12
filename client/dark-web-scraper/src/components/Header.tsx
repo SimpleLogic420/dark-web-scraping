@@ -1,6 +1,6 @@
 import React from "react";
-import { FullPasteType } from "../../types/paste";
-import Linklist from "./linklist";
+import { FullPasteType } from "../types/paste";
+
 function Header({pastelist,setSearch}:{pastelist:FullPasteType[],setSearch:React.Dispatch<React.SetStateAction<never[]>>}) {
   
   function filterFunc(filter:string, pastelist:FullPasteType[]) {
@@ -26,7 +26,7 @@ const filteredArray:FullPasteType[]=[]
     setTimeout(() => {
      // @ts-ignore
     setSearch(filteredArray)
-    }, 1000);
+    }, 2000);
     
   }
   return (
@@ -42,7 +42,6 @@ const filteredArray:FullPasteType[]=[]
       <div className="searchDiv">
           <br/>
           <br/>
-          
         <form action="submit" className="searchForm">
           <span>Search:</span>
           <input
