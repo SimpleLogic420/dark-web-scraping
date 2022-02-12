@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useEffect} from 'react'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -26,7 +26,7 @@ function Barchart({ percentage,pastelist }: props) {
  }
  const specificDayUploadHours=(specificDayArray:FullPasteType[])=>{
  const hoursArray =[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] //24 indexes for every hour at day
- for(let paste of pastelist){
+ for(let paste of specificDayArray){
    const pasteUploadHourNumber=Number(paste.date.substring(13,15))
    hoursArray[pasteUploadHourNumber]+=1
    
@@ -68,6 +68,7 @@ function Barchart({ percentage,pastelist }: props) {
     },
   };
   const labels = getHours();
+
 
  const data = {
   labels,

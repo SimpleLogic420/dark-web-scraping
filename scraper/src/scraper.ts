@@ -60,7 +60,7 @@ const buildPasteList=(containers)=>{
       const fullPasteObj = addCategory(pasteObj);
       pastesArray.push(fullPasteObj);
     }
-    enterDataToDb(pastesArray.reverse());
+    enterDataToDb(pastesArray);
   } catch (error) {
     console.log("failed in build paste list "+error);
   }
