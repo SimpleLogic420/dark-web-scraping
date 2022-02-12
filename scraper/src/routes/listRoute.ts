@@ -31,8 +31,8 @@ listRouter.get("/delete-all", async (req, res, next) => {
         "Content-Type": "text/event-stream",
       });
      start(url);
-     let pastes= await Paste.find({})
-     pastes=pastes.reverse()
+     let pastes1= await Paste.find({})
+    const pastes=pastes1.reverse()
      const stats= getStats(pastes)
      res.write(`data:${JSON.stringify({pastes,stats})}\n\n`)
      setInterval(async()=>{
@@ -41,6 +41,13 @@ listRouter.get("/delete-all", async (req, res, next) => {
        res.write(`data:${JSON.stringify({pastes,stats})}\n\n`)
      },120000)
   });
+  listRouter.get("/scrape-once", async (req, res) => {
+   
+   let pastes1= await Paste.find({})
+  const pastes=pastes1.reverse()
+   res.send(pastes)
+   
+});
 
 export default listRouter;
 

@@ -1,7 +1,13 @@
 import React from "react";
 import { FullPasteType } from "../../types/paste";
-import Linklist from "./linklist";
-function Header({pastelist,setSearch}:{pastelist:FullPasteType[],setSearch:React.Dispatch<React.SetStateAction<never[]>>}) {
+import Linklist from "./Linklist";
+
+
+interface props{
+  pastelist: FullPasteType[];
+  setSearch:React.Dispatch<React.SetStateAction<FullPasteType[]>>
+}
+function Header({pastelist,setSearch}:props) {
   
   function filterFunc(filter:string, pastelist:FullPasteType[]) {
 const filteredArray:FullPasteType[]=[]
@@ -22,9 +28,7 @@ const filteredArray:FullPasteType[]=[]
   const handleChange=(event:any)=>{
     const value= event.target.value
     const filteredArray=filterFunc(value,pastelist);
-    // eslint-disable-next-line no-native-reassign
     setTimeout(() => {
-     // @ts-ignore
     setSearch(filteredArray)
     }, 1000);
     
@@ -33,24 +37,24 @@ const filteredArray:FullPasteType[]=[]
     <div className="header">
         <div className="rightDiv">
           <div className="superRightDiv">
-          <h1 className="pageTitle">Dark-Web-pastes</h1>
+          <h1 className="pageTitle">Dark-Web-Pastes</h1>
       <p>Posts from strongHold site</p>
           </div>
         <div className="leftRightDiv"></div>
         </div>
-     
+       
       <div className="searchDiv">
           <br/>
           <br/>
-          
+         
         <form action="submit" className="searchForm">
-          <span>Search:</span>
+          {/* <span>Search : </span> */}
           <input
             type="text"
             id="searchInput"
             name="searchInput"
             className="searchInput"
-            placeholder="search for paste"
+            placeholder="search for pastes"
              onChange={handleChange}
             // value={searchText}
           />
@@ -59,7 +63,10 @@ const filteredArray:FullPasteType[]=[]
               
           </section>
         </form>
+        
+        
       </div>
+        <Linklist/>
     </div>
   );
 }

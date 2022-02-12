@@ -5,7 +5,7 @@ import PasteBox from "./PasteBox";
 import ReactPaginate from "react-paginate";
 interface props{
   pastelist: FullPasteType[];
-  setPasteList: React.Dispatch<React.SetStateAction<never[]>>;
+  setPasteList: React.Dispatch<React.SetStateAction<FullPasteType[]>>;
   search: FullPasteType[];
   stats:Percentage;
   setStats:React.Dispatch<React.SetStateAction<never[]>>
@@ -54,6 +54,7 @@ function PasteList({
     dataSource.onerror = (event) => {
       console.log(event.type);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="pasteList">
