@@ -21,7 +21,7 @@ let counter =0
 const getCategory = (text: string) => {
     let response = "general"
     const adultsContentKeyWords= ["porn","sex","xxx","taboo","child","teen","c.p","s3x","hot"]
-    const cryptoKeyWords= ["crypto","bitcoin","ethereum","mining","coin","binance","mine"]
+    const cryptoKeyWords= ["crypto","bitcoin","ethereum","mining","coin","binance",]
     const hackingKeyWords= ["database","hack","leak","users","data","injection","brut"]
     const drugsAndWeaponsKeyWords= ["drug","weapon","gun","pistol","rifle","psychedelic","cocaine","mushrooms","lsd","hashish","weed","molly","dmt"]
     for(let word of adultsContentKeyWords){
