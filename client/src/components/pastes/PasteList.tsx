@@ -57,7 +57,7 @@ function PasteList({
   }, []);
   return (
     <div className="pasteList">
-      <Dashboard percentage={stats} />
+      <Dashboard pastelist={pastelist} percentage={stats} />
       {search.length > 0 ? displaySearch : displayPastes}
       {/* ALL THE CODE BELOW IS FOR THE PAGINATE BUTTONS */}
       <ReactPaginate
