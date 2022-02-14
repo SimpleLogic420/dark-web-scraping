@@ -3,20 +3,28 @@ import { FullPasteType, Percentage } from "../../types/paste";
 import Dashboard from "../dashboard/Dashboard";
 import PasteBox from "./PasteBox";
 import ReactPaginate from "react-paginate";
-interface props{
+
+interface props {
   pastelist: FullPasteType[];
   setPasteList: React.Dispatch<React.SetStateAction<FullPasteType[]>>;
   search: FullPasteType[];
-  stats:Percentage;
-  setStats:React.Dispatch<React.SetStateAction<never[]>>
+  stats: Percentage;
+  setStats: React.Dispatch<React.SetStateAction<never[]>>;
+  notifications: string[];
+  setNotifications: React.Dispatch<React.SetStateAction<string[]>>;
+  newAlerts: number;
+  setNewAlerts: React.Dispatch<React.SetStateAction<number>>;
 }
-
 function PasteList({
   pastelist,
   setPasteList,
   search,
   stats,
-  setStats
+  setStats,
+  notifications,
+  setNotifications,
+  newAlerts,
+  setNewAlerts,
 }: props) {
  
   const [pageNumber, setPageNumber] = useState(0);
@@ -42,19 +50,26 @@ function PasteList({
   useEffect(() => {
     const dataSource = new EventSource("http://localhost:3010/list/scrape");
     dataSource.onmessage = (event) => {
-      console.log(
-        `${
-          JSON.parse(event.data).pastes.length
-        } pastes have been scraped at ${new Date()}`
-      );
+      const msg = `${
+        JSON.parse(event.data).pastes.length
+      } pastes have been scraped at ${new Date()}`;
+
       setPasteList(JSON.parse(event.data).pastes);
       setStats(JSON.parse(event.data).stats);
-      
+      const tempoNotif: string[] = notifications;
+      tempoNotif.unshift(msg);
+      setNotifications(tempoNotif);
+      setNewAlerts((newAlerts) => newAlerts + 1);
     };
     dataSource.onerror = (event) => {
       console.log(event.type);
+      const msg = "Scraping has failed";
+      const tempoNotif: string[] = notifications;
+      tempoNotif.unshift(msg);
+      setNotifications(tempoNotif);
+      setNewAlerts((newAlerts) => newAlerts + 1);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="pasteList">

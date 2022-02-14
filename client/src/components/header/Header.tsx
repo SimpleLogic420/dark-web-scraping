@@ -2,12 +2,15 @@ import React from "react";
 import { FullPasteType } from "../../types/paste";
 import Linklist from "./Linklist";
 
-
 interface props{
   pastelist: FullPasteType[];
   setSearch:React.Dispatch<React.SetStateAction<FullPasteType[]>>
+  notifications:string[],
+  setNotifications:React.Dispatch<React.SetStateAction<string[]>>;
+  newAlerts:number,
+  zeroNewAlerts:() => void
 }
-function Header({pastelist,setSearch}:props) {
+function Header({pastelist,setSearch,notifications,setNotifications,newAlerts,zeroNewAlerts}:props) {
   
   function filterFunc(filter:string, pastelist:FullPasteType[]) {
 const filteredArray:FullPasteType[]=[]
@@ -48,7 +51,7 @@ const filteredArray:FullPasteType[]=[]
           <br/>
          
         <form action="submit" className="searchForm">
-          {/* <span>Search : </span> */}
+          
           <input
             type="text"
             id="searchInput"
@@ -56,17 +59,10 @@ const filteredArray:FullPasteType[]=[]
             className="searchInput"
             placeholder="search for pastes"
              onChange={handleChange}
-            // value={searchText}
           />
-          <section className="searchBtnSection">
-              <button  type="submit" className="searchBtn" onClick={(e)=>{e.preventDefault() }}>Search</button>
-              
-          </section>
         </form>
-        
-        
       </div>
-        <Linklist/>
+        <Linklist newAlerts={newAlerts} zeroNewAlerts={zeroNewAlerts}/>
     </div>
   );
 }

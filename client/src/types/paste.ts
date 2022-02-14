@@ -26,3 +26,6 @@ export interface Alert {
   content: string;
   details: string;
 }
+export interface Notification{
+  
+}

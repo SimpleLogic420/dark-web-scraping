@@ -1,6 +1,6 @@
-import express ,{ Handler, Response } from "express";
+import express, { Handler, Response } from "express";
 
-import getList from "../controllers/listController"
+import getList from "../controllers/listController";
 import Paste from "../db/models/Schema";
 import start from "../scraper";
 import { getStats } from "../services/dashboard/stats";
@@ -18,36 +18,42 @@ listRouter.get("/", async (req, res, next) => {
   }
 });
 listRouter.get("/delete-all", async (req, res, next) => {
-    try {
-      const deletedCount=await Paste.deleteMany({})
-      res.send(deletedCount)
-    } catch (error) {
-      next(error);
-    }
+  try {
+    const deletedCount = await Paste.deleteMany({});
+    res.send(deletedCount);
+  } catch (error) {
+    next(error);
+  }
+});
+listRouter.get("/scrape", async (req, res) => {
+  res.writeHead(200, {
+    Connection: "keep-alive",
+    "Content-Type": "text/event-stream",
   });
-  listRouter.get("/scrape", async (req, res) => {
-      res.writeHead(200, {
-        Connection: "keep-alive",
-        "Content-Type": "text/event-stream",
-      });
-     start(url);
-     let pastes1= await Paste.find({})
-    const pastes=pastes1.reverse()
-     const stats= getStats(pastes)
-     res.write(`data:${JSON.stringify({pastes,stats})}\n\n`)
-     setInterval(async()=>{
-       start(url)
-       const pastes= await Paste.find({})
-       res.write(`data:${JSON.stringify({pastes,stats})}\n\n`)
-     },120000)
+  start(url);
+  let pastes1 = await Paste.find({});
+  const pastes = pastes1.reverse();
+  const stats = getStats(pastes);
+  res.write(`data:${JSON.stringify({ pastes, stats })}\n\n`);
+  setInterval(async () => {
+    start(url);
+    const pastes1 = await Paste.find({});
+    const pastes = pastes1.reverse();
+    res.write(`data:${JSON.stringify({ pastes, stats })}\n\n`);
+  }, 120000);
+});
+listRouter.get("/scrape-once", async (req, res) => {
+  res.writeHead(200, {
+    Connection: "keep-alive",
+    "Content-Type": "text/event-stream",
   });
-  listRouter.get("/scrape-once", async (req, res) => {
-   
-   let pastes1= await Paste.find({})
-  const pastes=pastes1.reverse()
-   res.send(pastes)
-   
+  let pastes1 = await Paste.find({});
+  const pastes = pastes1.reverse();
+  res.write(`data:${JSON.stringify({ pastes })}\n\n`);
+  setInterval(async () => {
+    const pastes = await Paste.find({});
+    res.write(`data:${JSON.stringify({ pastes })}\n\n`);
+  }, 120000);
 });
 
 export default listRouter;
-
