@@ -6,7 +6,6 @@ import "./keyword.scss";
 interface props {
   keywords: string[];
   setKeywords: React.Dispatch<React.SetStateAction<string[]>>;
-  
   setAlerts: React.Dispatch<React.SetStateAction<Alert[]>>;
   alerts: Alert[];
   notifications: string[];
@@ -112,7 +111,7 @@ function KeyWord({
   function formatDateTo_DD_MM_YYYY(date: Date) {
     //duplicated for lack of time ,(barchart)
     let dateStr = date.toString();
-    let date1 = dateStr.substring(4, 15);
+    let date1 = dateStr.substring(4, 16);
     const rightFormatDate =
       date1.split(" ")[1] +
       " " +
