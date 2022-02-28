@@ -1,0 +1,37 @@
+.alertsPage{
+   
+    text-align: center;
+}
+.alertsList{
+    width: 80%;
+    margin: 0 auto;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  }
+  .keywordBox{
+    width: 25%;
+    border: 2px solid var(--clr-accent);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.2rem;
+    margin: 0.1rem auto;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    overflow-wrap: break-word;
+  }
+  .alertDiv{
+    width: 80%;
+    border: 3px solid rgb(255, 224, 51);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 0.2rem;
+    margin: 0.2rem auto;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }

@@ -1,0 +1,214 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&family=Supermercado+One&display=swap");
+:root {
+  --clr-accent-fade: #3d75c9cb;
+  --clr-accent: #3d75c9;
+  --clr-light: #f1f1f1;
+  --clr-dark: #2e323f;
+  --clr-primary: #d0d3db;
+  --clr-secondary: #bcc1cf;
+  --foreground: var(--clr-dark);
+  --background: var(--clr-light);
+  --theme-icon: "☀";
+  --inverted: none;
+  --font-title: "Oswald", sans-serif;
+  --font-text: 'Nunito Sans', sans-serif;
+  --font-category:'Supermercado One', cursive;
+  --padding-block-section: 1rem;
+  --margin-top-element: 1em;
+  --radius: 5px;
+  --link-clr: #0000ee;
+  --visited-clr: #6924aa4f;
+}
+
+* {
+  font-family: var(--font-text);
+}
+
+.header {
+  background-color: #cfcfcf;
+  font-family: var(--font-title) !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.searchDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 28%;
+  text-align: center;
+}
+
+.searchBtnSection {
+  margin-top: 5px;
+}
+
+.searchBtn {
+  background-color: var(--clr-accent);
+  border-radius: 5px;
+}
+
+.footer {
+  font-family: var(--font-text);
+  background-color: #cfcfcf;
+  padding: 1em;
+  color: var(--foreground);
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  padding: 0px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  /* Height of the footer*/
+  height: 50px;
+  opacity: 0.9;
+}
+
+.copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.copyright-link {
+  color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5em;
+  text-decoration: underline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.copyright-link:hover,
+.copyright-link:focus {
+  opacity: 0.75;
+}
+
+.github-img {
+  width: 1.5em;
+  -webkit-filter: var(--inverted);
+          filter: var(--inverted);
+}
+
+.pasteList {
+  overflow: hidden;
+  border: 1px solid black;
+  margin: 5px auto 60px auto;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: var(--radius);
+  background-color: var(--background);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.pasteBox {
+  border: 1px solid black;
+  margin: 3px 10px;
+  padding: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow-wrap: break-word;
+}
+
+.pasteBoxBottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px;
+  background-color: #cfcfcf;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 5px;
+}
+
+.category {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 3px;
+  font-family: var(--font-category);
+}
+
+.paginationBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pageBtn {
+  padding: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: white;
+  border: 1px solid var(--clr-accent-fade);
+  cursor: pointer;
+}
+
+.previousBtn {
+  padding: 2px;
+  border-radius: 2px;
+  border: 1px solid #5f5f5f;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  cursor: pointer;
+}
+
+.nextBtn {
+  padding: 4px;
+  border-radius: 2px;
+  border: 1px solid white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  cursor: pointer;
+}
+
+.paginationDisabled {
+  border: 1px solid white;
+  border-radius: 2px;
+}
+
+.paginationActive {
+  padding: 6px;
+  background-color: var(--clr-accent-fade);
+  border: 1px solid white;
+}
+/*# sourceMappingURL=index.css.map */
