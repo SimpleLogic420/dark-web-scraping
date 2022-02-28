@@ -1,0 +1,53 @@
+.notificationPage{
+    text-align: center;
+}
+.notifList{
+    width: 50%;
+    margin: 0 auto;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  }
+  .notifBox{
+     width: 80%;
+     
+    border: 3px solid rgb(194, 38, 38);
+    background-color: rgb(241, 236, 236);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.2rem;
+    margin: 0.2rem auto;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    overflow-wrap: break-word;
+  }
+.setNotifBtn {
+    display: inline;
+    margin: 0 2%;
+    background-color: var(--clr-accent);
+    border-radius: 5px;
+    border: 2px solid whitesmoke;
+    cursor: pointer;
+    &:hover{
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: whitesmoke;
+      border: 2px solid var(--clr-accent);
+    }
+    &:active{
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: whitesmoke;
+      border: 2px solid var(--clr-accent);
+      box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    }
+    
+}
+.notifTitle{
+    display: inline;
+    margin: 0 2%;
+}
